@@ -25,12 +25,16 @@ import java.util.List;
 
 import sakura.bottommenulibrary.R;
 
+import static sakura.bottommenulibrary.R.id.tv_cancel;
+
 
 public class BottomMenuFragment extends DialogFragment {
 
     private final String TAG = "BottomMenuFragment";
     private Activity context;
     private OnItemClickListener mOnItemClickListener;
+    private boolean showTitle = false;
+    private String BottomTitle = "";
 
     public BottomMenuFragment(Activity context) {
         this.context = context;
@@ -42,12 +46,18 @@ public class BottomMenuFragment extends DialogFragment {
         return menuItemList;
     }
 
-    public void setMenuItems(List<MenuItem> menuItems) {
+    public void addMenuItems(List<MenuItem> menuItems) {
         this.menuItemList.addAll(menuItems);
     }
 
-    public BottomMenuFragment setMenuItems(MenuItem menuItems) {
+    public BottomMenuFragment addMenuItems(MenuItem menuItems) {
         menuItemList.add(menuItems);
+        return this;
+    }
+
+    public BottomMenuFragment setTitle(String BottomTitle) {
+        showTitle = true;
+        this.BottomTitle = BottomTitle;
         return this;
     }
 
@@ -69,14 +79,18 @@ public class BottomMenuFragment extends DialogFragment {
         getDialog().getWindow().setWindowAnimations(R.style.menu_animation);//添加一组进出动画
         View view = inflater.inflate(R.layout.fragment_bottom_menu, container, false);
         //view.setAnimation(AnimationUtils.loadAnimation(getActivity(), R.anim.menu_appear));//添加一个加载动画，这样的问题是没办法添加消失动画，有待进一步研究
-        TextView tv_cancel = (TextView) view.findViewById(R.id.tv_cancel);
-        tv_cancel.setOnClickListener(new View.OnClickListener() {
+        ((TextView) view.findViewById(tv_cancel)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.i(TAG, "onClick: tv_cancel");
                 BottomMenuFragment.this.dismiss();
             }
         });
+
+        if (showTitle) {
+            menuItemList.add(0, new MenuItem(BottomTitle, MenuItem.MenuItemStyle.COMMON));
+        }
+
         ListView lv_menu = (ListView) view.findViewById(R.id.lv_menu);
         MenuItemAdapter menuItemAdapter = new MenuItemAdapter(getActivity().getBaseContext(), this.menuItemList);
         lv_menu.setAdapter(menuItemAdapter);
@@ -85,11 +99,15 @@ public class BottomMenuFragment extends DialogFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.i(TAG, "onClick: ");
                 if (mOnItemClickListener != null) {
+                    if (showTitle) {
+                        if (position == 0) {
+                            return;
+                        }
+                    }
                     TextView menu_item = (TextView) view.findViewById(R.id.menu_item);
                     mOnItemClickListener.onItemClick(menu_item, position);
                     dismiss();
                 }
-
             }
         });
         return view;

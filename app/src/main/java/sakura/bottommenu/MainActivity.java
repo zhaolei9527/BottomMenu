@@ -19,8 +19,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initView();
-
-
     }
 
     private void initView() {
@@ -34,9 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btn:
 
                 new BottomMenuFragment(MainActivity.this)
-                        .setMenuItems(new MenuItem("条目一"))
-                        .setMenuItems(new MenuItem("条目二"))
-                        .setMenuItems(new MenuItem("条目三"))
+                        .addMenuItems(new MenuItem("从相册选择"))
+                        .addMenuItems(new MenuItem("拍照"))
                         .setOnItemClickListener(new BottomMenuFragment.OnItemClickListener() {
                             @Override
                             public void onItemClick(TextView menu_item, int position) {
