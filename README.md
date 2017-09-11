@@ -1,26 +1,26 @@
 # BottomMenu
 
-最近项目里面用到了底部的弹出提示框，UI小姐姐本着设计样式还是ios的好看原则。设计了一个ios样式的底部弹出提示框。**OK OK anyway**，类似样式并少见，实现方式有很多，网上随便找一个吧，还不满大街都是。嗯哼，确实不少。**但是 !!!** 不是讲代码就是讲布局，或者使用方法挺麻烦。
+最近项目里面用到了底部的弹出提示框，UI小姐姐本着设计样式还是ios的好看原则。设计了一个ios样式的底部弹出提示框。**OK OK anyway**，类似样式并少见，实现方式有很多，网上随便找一个吧，还不满大街都是。嗯哼，确实不少。**但是!!!** 不是讲代码就是讲布局，或者使用方法挺麻烦。
 
 用的时候还要自己手写这部分代码，麻烦不麻烦？作为一名注定要改变世界的程序猿，你让我天天写这个？这是不能忍的。就没有简单的，快捷的，高效的，一句话就能搞定的吗？
 
-有需求就有产品，所以
+有需求就有产品，所以，
 
-#### 这个BottomMenu产生了。
+## 这个BottomMenu产生了。
 
 [![](https://jitpack.io/v/zhaolei9527/BottomMenu.svg)](https://jitpack.io/#zhaolei9527/BottomMenu)
 [![](https://img.shields.io/badge/Go%20to-%E7%AE%80%E4%B9%A6-brightgreen.svg)](http://www.jianshu.com/p/8c7a3d0fcc46)
 
-## 相关内容参数详细介绍《简书》：[一句话搞定Android底部导航栏，一键绑定Fragment、ViewPager](http://www.jianshu.com/p/1dd8092d85f4)
+## 相关内容参数详细介绍《简书》：[一句话搞定高仿ios底部弹出提示框](http://www.jianshu.com/p/1dd8092d85f4)
 
 
-####先来看下效果：
+#### 先来看下效果：
 
-![演示](http://upload-images.jianshu.io/upload_images/5124923-c431aff01e9e7ac1.gif?imageMogr2/auto-orient/strip)
+![演示](https://github.com/zhaolei9527/BottomMenu/blob/master/app/src/main/res/drawable/device.gif)
 
 
-#How to use： 
-[![](https://jitpack.io/v/zhaolei9527/BottomMenu.svg)](https://jitpack.io/#zhaolei9527/BottomMenu)
+# How to use： 
+
 
 **Step 1. Add the JitPack repository to your build file**
 **Add it in your root build.gradle at the end of repositories:**
@@ -81,7 +81,8 @@ new BottomMenuFragment(MainActivity.this)
         .show();
 ```
 全部一句话搞定，还有更多功能可以发掘一下。
-##总结
+
+## 总结
 **代码整体满足了一句话搞定高仿ios底部弹出提示框的功能，当然，**
 
 **有了需求才有了功能，有了想法才有了创作，你的反馈会是使我进步的最大动力。**
