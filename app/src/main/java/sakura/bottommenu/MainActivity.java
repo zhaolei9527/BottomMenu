@@ -31,16 +31,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btn:
 
-        new BottomMenuFragment(MainActivity.this)
-                .addMenuItems(new MenuItem("从相册选择"))
-                .addMenuItems(new MenuItem("拍照"))
-                .setOnItemClickListener(new BottomMenuFragment.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(TextView menu_item, int position) {
-                        Toast.makeText(MainActivity.this, menu_item.getText().toString().trim(), Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .show();
+                new BottomMenuFragment(MainActivity.this)
+                        .setTitle("标题")
+                        .addMenuItems(new MenuItem("从相册选择", MenuItem.MenuItemStyle.COMMON))
+                        .addMenuItems(new MenuItem("拍照", MenuItem.MenuItemStyle.STRESS))
+                        .setOnItemClickListener(new BottomMenuFragment.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(TextView menu_item, int position) {
+                                Toast.makeText(MainActivity.this, menu_item.getText().toString().trim(), Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .show();
+
 
                 break;
         }
